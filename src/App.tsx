@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        将学习成果展示出来！
+      试一下看看GitHub可不可以工作
       </header>
     </div>
   );
