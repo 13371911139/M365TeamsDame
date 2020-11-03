@@ -1,0 +1,84 @@
+.Step__contanier{
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.single-step__container {
+    display: flex;
+    color: rgba(0, 0, 0, 0.45);
+
+    .circle {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
+        line-height: 32px;
+        text-align: center;
+        border: 1px solid rgba(0, 0, 0, 0.25);
+        border-radius: 32px;
+        margin-right: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }    
+
+    .isDoingCircle {
+        background-color: #1890ff;
+        color: white;
+    }
+
+    .isDoneCircle {
+        border-color: #1890ff;
+    }
+
+    .title-description__container {
+        margin-top: 8px;
+        height: 16px; 
+        margin-bottom: 10px;
+
+        .title-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            .title {
+                font-size: 16px;
+                line-height: 16px;
+                display: flex;
+                align-items: center;
+                margin-right: 20px;
+            }
+
+            .line {
+                border-top: 1px solid #1890ff;
+                display: inline-block;
+                width: 20vw;
+                position: absolute;
+                left: 100%;
+            }
+        }
+    
+        .description {
+            position: absolute;
+        }
+
+        .sunTitle {
+            margin-left: 15px;
+            color: rgba(0, 0, 0, 0.45);;
+        }
+
+       .isDoingTitle {
+            color: black; 
+            font-weight: 500;
+        }
+        .isDoneTitle {
+            color: black;
+        }
+        .isDoingdescription {
+            color: black;
+        }
+    }
+
+
+
+}
