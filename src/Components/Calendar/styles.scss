@@ -1,0 +1,106 @@
+.calendar__picker {
+    height: 2rem;
+    width: 10rem;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.calendar__picker:hover {
+    box-shadow: 0 0 0 2px rgba(24,144,255,.2);
+}
+
+.calendar__container {
+    width: 400px;
+    height: 600px;
+    border: 1px solid cornflowerblue;
+    box-shadow: 0 3px 6px -4px rgba(0,0,0,.12), 0 6px 16px 0 rgba(0,0,0,.08);
+    outline: none;
+
+
+    .header {
+        padding: 0.8rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .header__border {
+        width: 100%;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .date-week__container {
+        width: 100%;
+        
+        .table {
+            padding: 1rem;
+            width: 100%;
+            border: 1 solid;
+        }
+        .table td {
+            text-align: center;
+            padding: 0.7rem;
+        }
+    }
+
+    .article_container {
+        padding: 0 1rem;
+
+        .year__header {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+        }
+
+        .table {
+            width: 100%;
+        }
+
+        .table tr {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .table tr td {
+            padding: 4rem 1rem;
+        }
+
+
+        .table tr td:hover {
+            background-color: rgba(0,0,0,.25);
+            cursor: pointer;
+        }
+
+        .day-and-week_table {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .day-and-week_table td {
+            text-align: center;
+            padding: 30px 10px;
+        }
+
+        .day-and-week_table td:hover{
+            background-color: rgba(0,0,0,.25);
+            cursor: pointer;
+        }
+
+    }
+ 
+}
+
+.button {
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.button:hover {
+    font-weight: 700;
+    cursor: pointer;
+}
