@@ -17,17 +17,17 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">学习展示</header>
       <div className="layout">
-        <div className="list">
+        <nav className="list" role ="navigation" aria-labelledby="navigation">
           <ul>
             {ViewList.map((item) => {
               return (
                 <li onClick={(r) => changeComponent(item)}>
-                  <a>{item.name}</a>
+                  <a aria-label={`链接${item.name}`} href="vavascript:void(0)">{item.name}</a>
                 </li>
               );
             })}
           </ul>
-        </div>
+        </nav>
         <div className="content">{component}</div>
       </div>
     </div>
