@@ -14,8 +14,6 @@ const App = () => {
     const changeStatus = ()=>{
         status >=3 ?setStatus(()=> 0) :
         setStatus(()=>{return status + 1;})
-
-
     }
     return (
         <Fragment>

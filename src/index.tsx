@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 
 import App from './App'
+import Calendar from './Components/Calendar'
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-   <App/>
+   <Calendar/>
   </React.StrictMode>,
   document.getElementById('root')
 );
