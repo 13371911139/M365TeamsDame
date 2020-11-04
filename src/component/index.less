@@ -82,3 +82,45 @@
     }
   }
 }
+
+ul,
+li {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+.picker-box {
+  display: inline-block;
+  position: relative;
+}
+.panel {
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  margin-top: 10px;
+  .picker-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .dateTitle {
+      flex: 1;
+      color: #000000;
+    }
+    span {
+      padding: 5px;
+      color: #353333;
+      cursor: pointer;
+    }
+  }
+  .picker-content {
+    width: 280px;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+}

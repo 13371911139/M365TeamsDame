@@ -5,7 +5,7 @@ const moment = require("moment");
 interface iDateValue {}
 interface iDatePickerProps {
   name: string;
-  onChange?(value: string[]): any;
+  onChange?(value: any): void;
   className?: string;
   value?: string[];
   disabled?: boolean;
@@ -27,17 +27,35 @@ export const DatePicker: React.FC<iDatePickerProps> = (props) => {
   const [year, setyear] = useState();
   const [month, setmonth] = useState();
   return (
-    <div>
+    <div className="panel">
       <div className="picker-header">
-        <span className="iconfont iconleft"></span>
-        <span className="iconfont">&#xe628;</span>
-        <span className="dateTitle">
-          <span>{year}年</span>
-          <span>{month}月</span>
-          <span>{month}日</span>
+        <span
+          onClick={(r) => setcurrent(moment(current).subtract(1, "years"))}
+          className="iconfont iconleft"
+        ></span>
+        <span
+          onClick={(r) => setcurrent(moment(current).subtract(1, "months"))}
+          className="iconfont"
+        >
+          &#xe628;
         </span>
-        <span className="iconfont">&#xe63a;</span>
-        <span className="iconfont">&#xe62b;</span>
+        <span className="dateTitle">
+          <span>{moment(current).format("YYYY")}年</span>
+          <span>{moment(current).format("MM")}月</span>
+          <span>{moment(current).format("DD")}日</span>
+        </span>
+        <span
+          onClick={(r) => setcurrent(moment(current).add(1, "months"))}
+          className="iconfont"
+        >
+          &#xe63a;
+        </span>
+        <span
+          onClick={(r) => setcurrent(moment(current).add(1, "years"))}
+          className="iconfont"
+        >
+          &#xe62b;
+        </span>
       </div>
       <div className="picker-content">
         <ul>
@@ -49,8 +67,12 @@ export const DatePicker: React.FC<iDatePickerProps> = (props) => {
           {dayList.map((item, index) => {
             const startDay = moment(current).startOf("month");
             const thisWeek = startDay.format("E");
+            const thisDate = moment(startDay).add(index - thisWeek, "days");
+
             return (
-              <li>{moment(startDay).subtract(thisWeek-index-7, "days").format("DD")}</li>
+              <li onClick={(r) => onChange(thisDate.format("YYYY-MM-DD HH:mm:ss"))}>
+                {thisDate.format("DD")}
+              </li>
             );
           })}
         </ul>
@@ -59,21 +81,34 @@ export const DatePicker: React.FC<iDatePickerProps> = (props) => {
   );
 };
 const DatePickerInput: React.FC<iDatePickerProps> = (props) => {
+  const {
+    type = "text",
+    placeholder = "请选择时间",
+    value = "",
+    ...otherProps
+  } = props;
   const [showPanel, setPanel] = useState(false);
-  const { type = "text", placeholder = "请选择时间", ...otherProps } = props;
+  const [values, setValue] = useState(value);
+
   const onChange = (event: any) => {
+    debugger;
     console.log(event);
+  };
+  const dateChange = (date: any) => {
+    setPanel(false);
+    setValue(date)
   };
   return (
     <>
-      <div>
+      <div className="picker-box">
         <input
           type={type}
           placeholder={placeholder}
           onChange={onChange}
+          value={values}
           onClick={(r) => setPanel(!showPanel)}
         />
-        {showPanel && <DatePicker {...otherProps} />}
+        {showPanel && <DatePicker onChange={dateChange} {...otherProps} />}
       </div>
     </>
   );
