@@ -7,7 +7,10 @@ const StepView:React.FC = ()=>{
     
   }
   return<>
-    <DatePicker onChange={onChange} name='picker1'/>
+    <div style={{marginBottom:20}}><DatePicker onChange={onChange} name='picker1'/></div>
+    <div style={{marginBottom:20}}><DatePicker disabled onChange={onChange} name='picker1'/></div>
+    <div style={{marginBottom:20}}><DatePicker optionalRange={['2020/10/1']} onChange={onChange} name='picker1'/></div>
+    <div style={{marginBottom:20}}><DatePicker optionalRange={['2020/11/1','2020/11/7']} onChange={onChange} name='picker1'/></div>
     </>
 }
 export default StepView

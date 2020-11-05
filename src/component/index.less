@@ -98,10 +98,16 @@ li {
   top: 100%;
   left: 0px;
   margin-top: 10px;
+  z-index: 999;
+  background:#fff;
+  box-shadow: 0  0 11px #ccc;
+  border-radius: 4px;
   .picker-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top:10px;
+    border-bottom: 1px solid #ddd;
     .dateTitle {
       flex: 1;
       color: #000000;
@@ -123,11 +129,16 @@ li {
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
         &.active{
           color: #1890ff;
           border:1px solid #1890ff;
           box-sizing: border-box;
           border-radius: 3px;
+        }
+        &.day-disabled{
+          color:#ddd;
+          cursor: default;
         }
       }
     }
