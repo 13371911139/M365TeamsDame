@@ -1,6 +1,7 @@
 import React from "react";
 import StepView from "./step";
 import DatePicker from './datePicker'
+import Transfer from './transfer'
 interface ViewList {
   component: React.ReactNode;
   name: string;
@@ -8,6 +9,6 @@ interface ViewList {
 const ViewList: ViewList[] = [
     { component: <StepView></StepView>, name: "step" },
     { component: <DatePicker/>, name: "DatePicker" },
-    { component: <span>待定待定待定待定待定</span>, name: "holle every body" },
+    { component: <Transfer/>, name: "Transfer" },
 ];
 export default ViewList

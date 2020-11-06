@@ -152,7 +152,7 @@ export const DatePicker: React.FC<iDatePickerProps> = (props) => {
           })}
         </ul>
       </div>
-      <div  style={{padding:10,textAlign:"center"}}><button tabIndex={2} role="close" aria-label="close panel">关闭</button></div>
+      <div  style={{padding:10,textAlign:"center"}}><button onClick={onClose} tabIndex={2} role="close" aria-label="close panel">close</button></div>
     </div>
   );
 };
