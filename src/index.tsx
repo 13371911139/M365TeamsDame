@@ -2,13 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 
-import App from './App'
+import App from './App';
+import Transfer from './Components/Transfer'
 import Calendar from './Components/Calendar'
 import reportWebVitals from './reportWebVitals';
 
+import { Provider } from 'react-redux';
+import store from './store'
+
 ReactDOM.render(
   <React.StrictMode>
-   <Calendar/>
+   {/* <Calendar/> */}
+   <Provider store ={store}>
+        <Transfer/>
+   </Provider>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
