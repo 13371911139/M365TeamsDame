@@ -1,5 +1,43 @@
 .tf-box{
     display:flex;
     width:300px;
-    height:300px;
+    height:310px;
+    border:1px solid #ddd;padding-bottom: 10px;
+    .tf-button{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        button{
+            margin:5px;
+        }
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
+    .tf-left,.tf-right{
+        flex:1;
+        height:100%;
+        
+        
+        >div{
+            height:100%;
+            display:flex;
+            flex-direction: column;
+            .selectTitle{
+                padding:10px;
+border-bottom: 1px solid #ddd;
+            }
+            ul{
+                padding:0 10px;
+                overflow:auto;
+                height:100%;
+                li{
+                    &.list-disabled{
+                        color:#555;
+                        background:none;
+                    }
+                }
+            }
+        }
+
+    }
 }
