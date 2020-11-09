@@ -34,7 +34,13 @@ const weekAndDay : React.FC<IdayProps>= ({month,year,dayPicker}) => {
                                 {
                                     item.map((item,index)=>{
                                         return(
-                                        <td  tabIndex={0} aria-label={`The day of the date is ${item}`} key ={index} onClick ={(event: any) => dayPicker(parseInt(event.target.innerHTML))} >{item}</td>
+                                        <td  
+                                        tabIndex={0}        
+                                        aria-label={`The day of the date is ${item}`} 
+                                        key ={index}
+                                        onClick ={(event: any) => dayPicker(parseInt(event.target.innerHTML))}
+                                        onKeyDown={(event:any)=>  event.keyCode === 13 && dayPicker(parseInt(event.target.innerHTML))}
+                                         >{item}</td>
                                         )
                                     })
                                 }
