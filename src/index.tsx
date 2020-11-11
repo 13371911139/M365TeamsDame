@@ -6,18 +6,36 @@ import App from './App';
 import Transfer from './Components/Transfer'
 import Calendar from './Components/Calendar'
 import reportWebVitals from './reportWebVitals';
+import RoundDatePciker from './Components/RoundDatePicker/index';
+import Collapse from './Components/Collapse';
+import ToolTip from './Components/ToolTip';
 
 import { Provider } from 'react-redux';
 import store from './store'
+const { Panel } = Collapse;
 
 ReactDOM.render(
-  <React.StrictMode>
-   {/* <Calendar/> */}
-   <Provider store ={store}>
-        <Transfer/>
-   </Provider>
+   <div>
+     <Collapse>   
+         <Panel>
+            <ToolTip title='1'/>
+         </Panel>
+         <Panel>
+            <ToolTip title='2'/>
+         </Panel>
+         <Panel>
+            <ToolTip title='3'/>
+         </Panel>
+         <Panel>
+            <ToolTip title='4'/>
+         </Panel>
+         <Panel>
+            <ToolTip title='5'/>
+         </Panel>
+     </Collapse>
+    </div>
+   ,
 
-  </React.StrictMode>,
   document.getElementById('root')
 );
 
