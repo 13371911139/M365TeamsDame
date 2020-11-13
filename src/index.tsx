@@ -9,6 +9,8 @@ import reportWebVitals from './reportWebVitals';
 import RoundDatePciker from './Components/RoundDatePicker/index';
 import Collapse from './Components/Collapse';
 import ToolTip from './Components/ToolTip';
+import Progress from './Components/Progress';
+import ProgressCircle from './Components/ProgressCircle'
 
 import { Provider } from 'react-redux';
 import store from './store'
@@ -16,7 +18,7 @@ const { Panel } = Collapse;
 
 ReactDOM.render(
    <div>
-     <Collapse>   
+     {/* <Collapse>   
          <Panel>
             <ToolTip title='1'/>
          </Panel>
@@ -32,7 +34,8 @@ ReactDOM.render(
          <Panel>
             <ToolTip title='5'/>
          </Panel>
-     </Collapse>
+     </Collapse> */}
+     <ProgressCircle percent={0.6}/>
     </div>
    ,
 
