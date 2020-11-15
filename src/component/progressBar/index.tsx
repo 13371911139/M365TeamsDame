@@ -2,12 +2,13 @@ import React from 'react'
 import './index.less'
 interface iProps {
     value: number,
-    content?: string
+    content?: string,
+    style?:object
 }
 export const ProgressBar: React.FC<iProps> = (props) => {
-    const { content, value } = props
+    const { content, value ,style={}} = props
     return <div className="progressbar">
-        <span className="value_progre"><i style={{ width: value + '%' }}></i></span>
+        <span className="value_progre"><i style={{ width: value + '%',...style }}></i></span>
         {
             content && <span className="content_progre">{content}</span>
         }
@@ -30,7 +31,7 @@ export const ProgressBarCircular: React.FC<iProps> = (props) => {
 　　　　　　　　<circle cx="115" cy="115" r="50" fill="none" stroke="#f7f7f7" stroke-width="20" />
 　　　　　　　　//外层圆
 　　　　　　　　//内容圆
-　　　　　　    <circle className="test" cx="115" cy="115" r="50" fill="none" stroke="url(#orange)" stroke-width="12" stroke-dasharray={Math.PI * 100} stroke-dashoffset={Math.PI * 100 - Math.PI * value} stroke-linecap="round" />
+　　　　　　    <circle cx="115" cy="115" r="50" fill="none" stroke="url(#orange)" stroke-width="12" stroke-dasharray={Math.PI * 100} stroke-dashoffset={Math.PI * 100 - Math.PI * value} stroke-linecap="round" />
 　　　　　　　　//内层圆
 　　　　</svg>
     </div>
