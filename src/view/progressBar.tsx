@@ -12,7 +12,7 @@ const ProgressBarView: React.FC = () => {
           <ProgressBarCircular value={30} content="30%"/><br/>
       </div>
       <div style={{width:300}}>
-          <ProgressBarCircular  value={80} content="进度80%"/><br/>
+          <ProgressBarCircular  value={80} circelColor={['green','#fafafa']} content="进度80%"/><br/>
       </div>
       </div>
      
