@@ -6,6 +6,7 @@
 @import './Components/ToolTip/styles.scss';
 @import './Components/Progress/styles.scss';
 @import './Components/ProgressCircle/styles.scss';
+@import './Components/Message/styles.scss';
 body {
   margin: 4rem;
   padding: 0;
@@ -24,4 +25,8 @@ code {
 .go-button {
   width: 20vw;
   margin-top: 50px ;
+}
+
+.space{
+  display: flex;
 }

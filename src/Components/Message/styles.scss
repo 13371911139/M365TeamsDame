@@ -1,0 +1,86 @@
+.message__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 35rem;
+    position: relative;
+
+    .control__panel {
+        position: absolute;
+        height: 25px;
+        padding: 4px 15px;
+        font-size: 14px;
+        border-radius: 2px;
+        color: rgba(0,0,0,.85);
+        background: #fff;
+        border: 1px solid #d9d9d9;
+        display: flex;
+        width: 60px;
+        align-items: center;
+        justify-content: center;
+        bottom: 0;
+    }
+
+    .control__panel:hover{
+        border-color: #1890ff;
+        cursor: pointer;
+    }
+}
+
+.message{
+    padding: 0.5rem;
+    border: 1px solid #909090;
+    border-radius: 10px;
+    width: 16rem;
+    display: flex;
+    justify-content: center;
+    animation: 0.78s dispaly 1;
+    animation-fill-mode:forwards;
+}
+
+.message-tag {
+    line-height: 1rem;
+    font-size: 1rem;
+    display: flex;
+}
+
+.tag {
+    color: #52c41a;
+    padding-right: 1rem;
+}
+
+@keyframes dispaly {
+    from {
+        position: absolute;
+        top: 0;
+    }
+
+    to{
+        position: absolute;
+        top: 50px;
+    }
+}
+
+.disappear {
+    animation: 1s disappear 1;
+    padding: 0.5rem;
+    border: 1px solid #909090;
+    border-radius: 10px;
+    width: 16rem;
+    display: flex;
+    justify-content: center;
+    animation-fill-mode:forwards;
+    position: absolute;
+    top: 50px;
+}
+
+@keyframes disappear{
+    from{
+        opacity: 1;
+    }
+
+    to{
+        opacity: 0;
+        display: none;
+    }
+}
