@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.less";
 import Step from "./component/step";
 import ViewList from "./view/index";
+
 const App: React.FC = () => {
   const [component, setComponent] = useState(ViewList[0].component);
   useEffect(() => {
