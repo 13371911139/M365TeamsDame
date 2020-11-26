@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Steps, Row, Col, DatePicker, Transfer } from 'antd';
+import { Steps, Row, Col, DatePicker, Collapse, Tooltip, Progress, message, Button, Space } from 'antd';
 import 'antd/dist/antd.css';
 import Sider from "./Components/Menu";
 
 import M365Steps from "./Components/M365Steps/M365Steps";
 import M365DatePicker from "./Components/DatePicker/index";
 import M365Transfer from "./Components/M365Transfer/index";
+import M365Collapse from "./Components/M365Collapse/index";
+import M365Tooltip from "./Components/M365Tooltip/index";
+import M365Progress from "./Components/M365Progress/index";
+import M365Message from "./Components/M365Message/index";
 const { Step } = Steps;
+const { Panel } = Collapse;
+const M365Panel = M365Collapse.Panel;
+
+function callback(key: any) {
+	console.log(key);
+}
 type StepProps = {
 	className?: string;
 	description?: React.ReactNode;
@@ -19,9 +29,35 @@ type StepProps = {
 	subTitle?: React.ReactNode;
 	style?: React.CSSProperties;
 }
+
+const success = () => {
+	message.success('This is a success message');
+};
+
+const error = () => {
+	message.error('This is an error message');
+};
+
+const warning = () => {
+	message.warning('This is a warning message');
+};
+
+const successM365 = () => {
+	M365Message.success('This is a success message');
+};
+
+const errorM365 = () => {
+	M365Message.error('This is an error message');
+};
+
+const warningM365 = () => {
+	M365Message.warning('This is a warning message');
+};
 function App() {
 	const [currentStep, setcurrentStep] = useState(0);
 	const [menuData, setMenuData] = useState(11);
+	const [panelNum, setPanelNum] = useState(0);
+	const [percent, setPercent] = useState(50);
 	const stepsData: StepProps[] = [
 		{ title: "step 1", subTitle: "This is a description." },
 		{ title: "step 2", subTitle: "This is a description." },
@@ -106,6 +142,97 @@ function App() {
 			<M365Transfer
 				leftDataArrProps={leftDataArr}
 				rightDateArrProps={rightDataArr} />
+			<hr />
+			<h2>ant-design Collapse component</h2>
+			<Collapse defaultActiveKey={['1']} onChange={callback}>
+				<Panel header="This is panel header 1" key="1">
+					<p>panel content</p>
+				</Panel>
+				<Panel header="This is panel header 2" key="2">
+					<p>panel content</p>
+				</Panel>
+				<Panel header="This is panel header 3" key="3" disabled>
+					<p>panel content</p>
+				</Panel>
+			</Collapse>
+			<h2>my Collapse component</h2>
+			<p>被选中的面板{panelNum}</p>
+			<M365Collapse defaultActiveKey={panelNum} onChange={(num: number) => setPanelNum(num)}>
+				<M365Panel key="1" header="panel header1" content="panel content1" />
+				<M365Panel key="2" header="panel header2" content="panel content2" />
+				<M365Panel key="3" header="panel header3" content="panel content3" />
+			</M365Collapse>
+			<hr />
+			<h2>ant-design tooltip component</h2>
+			<Tooltip title="prompt text">
+				<span>Tooltip left</span>
+			</Tooltip>
+			<h2>my tooltip component</h2>
+			<M365Tooltip title="prompt text" placement="left">
+				<Button>Tooltip left</Button>
+			</M365Tooltip>
+			<br />
+			<M365Tooltip title="prompt text" placement="right">
+				<Button>Tooltip right</Button>
+			</M365Tooltip>
+			<br />
+
+			<M365Tooltip title="prompt text" placement="top">
+				<Button>Tooltip top</Button>
+			</M365Tooltip>
+			<br />
+
+			<M365Tooltip title="prompt text" placement="bottom">
+				<Button>Tooltip bottom</Button>
+			</M365Tooltip>
+			<br />
+			<h2>ant-design Progress component</h2>
+			<Progress percent={30} />
+			<Progress percent={50} status="active" />
+			<Progress percent={70} status="exception" />
+			<Progress percent={100} />
+			<Progress percent={50} showInfo={false} />
+
+			<h2>my Progress component</h2>
+			<Button aria-label="subtraction percent"
+				onClick={() => {
+					let newpercent = percent - 10 >= 0 ? percent - 10 : 0;
+					setPercent(newpercent);
+				}}>-</Button>
+			<Button aria-label="Addition  percent"
+				onClick={() => {
+					let newpercent = percent + 10 <= 100 ? percent + 10 : 100;
+					setPercent(newpercent);
+				}}>+</Button>
+			<section className="code-box-demo">
+				<M365Progress percent={percent} />
+				<M365Progress percent={percent} showInfo={false} />
+				<M365Progress percent={percent} status="active" />
+				<M365Progress percent={percent} status="exception" />
+				<M365Progress percent={100} />
+
+				<div style={{ width: '100px' }}>
+					<M365Progress percent={percent} type="circle" />
+				</div>
+
+			</section>
+
+			<h2>ant-design Message component</h2>
+			<Space>
+				<Button onClick={success}>Success</Button>
+				<Button onClick={error}>Error</Button>
+				<Button onClick={warning}>Warning</Button>
+			</Space>
+
+			<h2>my Message component</h2>
+			<Space>
+				<Button onClick={successM365}>Success</Button>
+				<Button onClick={errorM365}>Error</Button>
+				<Button onClick={warningM365}>Warning</Button>
+			</Space>
+
+
+
 		</div>
 	);
 }
