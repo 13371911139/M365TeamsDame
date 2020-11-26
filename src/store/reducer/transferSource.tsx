@@ -102,7 +102,6 @@ const reducer =(state : any= initialState, action:any) => {
             for(let a =0; a<state.data.length; a++){
                 action.dataload.includes( state.data[a].id) && state.data1.push( state.data[a])
             }
-            console.log(state.data1)
             _.remove(state.data,(removeItem :any)=> action.dataload.includes(removeItem.id))
           
 

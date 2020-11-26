@@ -1,0 +1,53 @@
+.progress-circle__first {
+    background-color: #FFFFFF;
+    width: 182px;
+    height: 182px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-circle__second{
+    background-color: #6ED4BF;
+    width: 182px;
+    height: 182px;
+    border-radius: 50%;
+    clip:rect(0,91px,auto,0);
+    position: absolute;
+}
+
+.progress-circle__third__less {
+    background-color: white;
+    width: 182px;
+    height: 182px;
+    border-radius: 50%;
+    clip:rect(0,91px,auto,0);
+    position: absolute;
+}
+
+.progress-circle__third__more {
+    background-color: #6ED4BF;
+    width: 182px;
+    height: 182px;
+    border-radius: 50%;
+    clip:rect(0,91px,auto,0);
+    position: absolute;
+    transform: rotate(10deg);
+}
+
+.progress-circle__mask{
+    display: block;
+    font-size: 44px;
+    color: black;
+    line-height: 150px;
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius:50%;
+    z-index: 1000;
+    text-align: center;
+    z-index: 1000;
+    position: absolute;
+}

@@ -6,10 +6,12 @@ const week =['一','二','三','四','五','六','七'];
 interface IdayProps{
     month:number,
     year:number,
+    isLeftPart ?: (status:boolean)=>void,
+    isRightPart ?: (status:boolean)=>void,
     dayPicker:(day:number)=>void,
 }
 
-const weekAndDay : React.FC<IdayProps>= ({month,year,dayPicker}) => {
+const weekAndDay : React.FC<IdayProps>= ({month,year,dayPicker,isLeftPart,isRightPart}) => {
     const firstDayWeekDay :number = (new Date(`${year},${month},01`).getDay());
     const currentMonthDays : number = new Date(year,month,0).getDate();
     const dayArr:number[] = new Array(firstDayWeekDay === 0 ? 6 : firstDayWeekDay-1).concat(_.range(1,currentMonthDays+1,1))
@@ -38,7 +40,7 @@ const weekAndDay : React.FC<IdayProps>= ({month,year,dayPicker}) => {
                                         tabIndex={0}        
                                         aria-label={`The day of the date is ${item}`} 
                                         key ={index}
-                                        onClick ={(event: any) => dayPicker(parseInt(event.target.innerHTML))}
+                                        onClick ={(event: any) => {dayPicker(parseInt(event.target.innerHTML));isLeftPart &&isLeftPart(true);isRightPart&&isRightPart(false)}}
                                         onKeyDown={(event:any)=>  event.keyCode === 13 && dayPicker(parseInt(event.target.innerHTML))}
                                          >{item}</td>
                                         )

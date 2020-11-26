@@ -1,0 +1,32 @@
+.double-date-picker__container {
+    display: flex;
+    border: 1px solid #9f9f9f;
+    width: 20rem;
+    justify-content: space-between;
+    border-radius: 5px;
+    color: #9f9f9f;
+    align-items: center;
+
+   .date_picker {
+       padding: 8px;
+       width: 7rem;
+   }
+
+   .selected__status {
+       border-bottom: 2px solid #40a9ff;
+   }
+
+}   
+
+.round-calendar__container {
+    display: flex;
+}
+
+.selected-border__status {
+    border: 1px solid #40a9ff;
+}
+
+.double-date-picker__container:hover {
+        border: 1px solid #40a9ff;
+} 
+

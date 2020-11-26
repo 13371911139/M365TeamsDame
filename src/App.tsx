@@ -10,7 +10,6 @@ const singStepsDetails =[
 const App = () => {
     const [status,setStatus] =useState<number>(0)
 
-    console.log(status)
     const changeStatus = ()=>{
         status >=3 ?setStatus(()=> 0) :
         setStatus(()=>{return status + 1;})
